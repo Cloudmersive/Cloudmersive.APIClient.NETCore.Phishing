@@ -7,15 +7,15 @@
     <OutputType>Library</OutputType>
     <Authors>Cloudmersive</Authors>
     <Company>Cloudmersive</Company>
-    <AssemblyTitle>Cloudmersive Convert API Client</AssemblyTitle>
-    <Description>Convert files and data effortlessly. Convert DOCX to PDF. Convert CSV to JSON. And much more.</Description>
+    <AssemblyTitle>Cloudmersive Phishing Detection API Client</AssemblyTitle>
+    <Description>Detect Phishing and Business Email Compromise attacks in links and URLs.</Description>
     <Copyright>No Copyright</Copyright>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>Cloudmersive.APIClient.NETCore.Phishing</RootNamespace>
-    <Version>1.0.0</Version>
-  <PackageIconUrl>https://cloudmersive.com/images/cmsdk_core.png</PackageIconUrl><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression><PackageProjectUrl>https://cloudmersive.com/convert-api</PackageProjectUrl></PropertyGroup>
+    <Version>1.0.1</Version>
+  <PackageIconUrl>https://cloudmersive.com/images/cmsdk_core.png</PackageIconUrl><PackageLicenseExpression>Apache-2.0</PackageLicenseExpression><PackageProjectUrl>https://cloudmersive.com/phishing-api</PackageProjectUrl></PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.7" />
