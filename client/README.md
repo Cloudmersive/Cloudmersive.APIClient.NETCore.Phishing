@@ -1,11 +1,11 @@
 # Cloudmersive.APIClient.NETCore.Phishing - the C# library for the phishingapi
 
-Easily and directly scan and block phishing security threats.
+Easily and directly scan and block phishing security threats in input.
 
 This C# SDK is for the [Cloudmersive Phishing Detection API](https://www.cloudmersive.com/phishing-api):
 
 - API version: v1
-- SDK version: 1.0.1
+- SDK version: 1.1.0
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -53,18 +53,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.ApiKeyPrefix.Add("Apikey", "Bearer");
 
-            var apiInstance = new PhishingUrlApi();
-            var body = new PhishingUrlAdvancedRequest(); // PhishingUrlAdvancedRequest |  (optional) 
+            var apiInstance = new PhishingDetectionApi();
+            var body = new AdvancedEmailDetectionRequest(); // AdvancedEmailDetectionRequest | Phishing detection request (optional) 
 
             try
             {
-                // Use advanced AI detection to determine if a URL is a known phishing threat
-                PhishingUrlAdvancedResponse result = apiInstance.PhishingUrlAdvancedPost(body);
+                // Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+                PhishingDetectionEmailAdvancedResponse result = apiInstance.PhishingDetectEmailAdvancedPost(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PhishingUrlApi.PhishingUrlAdvancedPost: " + e.Message );
+                Debug.Print("Exception when calling PhishingDetectionApi.PhishingDetectEmailAdvancedPost: " + e.Message );
             }
 
         }
@@ -79,22 +79,20 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PhishingUrlApi* | [**PhishingUrlAdvancedPost**](docs/PhishingUrlApi.md#phishingurladvancedpost) | **POST** /phishing/url/advanced | Use advanced AI detection to determine if a URL is a known phishing threat
-*PhishingUrlApi* | [**PhishingUrlPost**](docs/PhishingUrlApi.md#phishingurlpost) | **POST** /phishing/url | Use AI and deterministic detection to determine if a URL is a phishing threat
-*PhishingUrlBatchApi* | [**PhishingUrlAdvancedBatchPost**](docs/PhishingUrlBatchApi.md#phishingurladvancedbatchpost) | **POST** /phishing/url/advanced/batch | Accept multiple urls at once to perform lookups to see if the urls are known phishing sites as well as multiple other scans to determine  if the URL is a potential phishing threat.
-*PhishingUrlBatchApi* | [**PhishingUrlBatchPost**](docs/PhishingUrlBatchApi.md#phishingurlbatchpost) | **POST** /phishing/url/batch | Accept multiple urls at oncee and perform AI and deterministic methods to detect if a URL is a phishing threat.
+*PhishingDetectionApi* | [**PhishingDetectEmailAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetectemailadvancedpost) | **POST** /phishing/detect/email/advanced | Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+*PhishingDetectionApi* | [**PhishingDetectFileAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetectfileadvancedpost) | **POST** /phishing/detect/file/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+*PhishingDetectionApi* | [**PhishingDetectFilePost**](docs/PhishingDetectionApi.md#phishingdetectfilepost) | **POST** /phishing/detect/file | Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
+*PhishingDetectionApi* | [**PhishingDetectTextStringAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetecttextstringadvancedpost) | **POST** /phishing/detect/text-string/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.PhishingUrlAdvancedRequest](docs/PhishingUrlAdvancedRequest.md)
- - [Model.PhishingUrlAdvancedRequestBatch](docs/PhishingUrlAdvancedRequestBatch.md)
- - [Model.PhishingUrlAdvancedResponse](docs/PhishingUrlAdvancedResponse.md)
- - [Model.PhishingUrlAdvancedResponseBatch](docs/PhishingUrlAdvancedResponseBatch.md)
- - [Model.PhishingUrlRequest](docs/PhishingUrlRequest.md)
- - [Model.PhishingUrlResponse](docs/PhishingUrlResponse.md)
- - [Model.PhishingUrlResponseBatch](docs/PhishingUrlResponseBatch.md)
+ - [Model.AdvancedEmailDetectionRequest](docs/AdvancedEmailDetectionRequest.md)
+ - [Model.PhishingDetectionAdvancedRequest](docs/PhishingDetectionAdvancedRequest.md)
+ - [Model.PhishingDetectionAdvancedResponse](docs/PhishingDetectionAdvancedResponse.md)
+ - [Model.PhishingDetectionEmailAdvancedResponse](docs/PhishingDetectionEmailAdvancedResponse.md)
+ - [Model.PhishingDetectionResponse](docs/PhishingDetectionResponse.md)
 
 
 <a name="documentation-for-authorization"></a>

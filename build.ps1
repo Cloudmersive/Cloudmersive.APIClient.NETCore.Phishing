@@ -1,5 +1,10 @@
 ﻿Remove-Item –path ./client –recurse
-& java -jar swagger-codegen-cli-2.4.12.jar generate -i https://api.cloudmersive.com/phishing/v1/swagger.json -l csharp -o client -c packageconfig.json
+
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/phishing/v1/swagger.json' -OutFile '.\phishing-api-swagger.json'
+(Get-Content .\phishing-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\phishing-api-swagger.json
+(Get-Content .\phishing-api-swagger.json).replace('"http"', '"https"') | Set-Content .\phishing-api-swagger.json
+
+& java -jar swagger-codegen-cli-2.4.12.jar generate -i .\phishing-api-swagger.json -l csharp -o client -c packageconfig.json
 #(Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
 #& npm build ./client
@@ -17,7 +22,7 @@
 (Get-Content '.\client\src\Cloudmersive.APIClient.NETCore.Phishing\Cloudmersive.APIClient.NETCore.Phishing.csproj').replace('<PackageReference Include="RestSharp" Version="105.1.0" />', '<PackageReference Include="RestSharp" Version="106.6.10" />') | Set-Content '.\client\src\Cloudmersive.APIClient.NETCore.Phishing\Cloudmersive.APIClient.NETCore.Phishing.csproj'
 (Get-Content '.\client\src\Cloudmersive.APIClient.NETCore.Phishing\Client\ApiClient.cs').replace('request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);', 'request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);') | Set-Content '.\client\src\Cloudmersive.APIClient.NETCore.Phishing\Client\ApiClient.cs'
 
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj).replace('</ItemGroup>', '</ItemGroup><Target Name="PostBuild" AfterTargets="PostBuildEvent">    <Exec Command="call powershell C:\CodeSigning\sign.ps1  $(TargetPath)" />  </Target>') | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj
+#(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj).replace('</ItemGroup>', '</ItemGroup><Target Name="PostBuild" AfterTargets="PostBuildEvent">    <Exec Command="call powershell C:\CodeSigning\sign.ps1  $(TargetPath)" />  </Target>') | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj
 
 & dotnet build ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj -c Release
 & dotnet pack ./client/src/Cloudmersive.APIClient.NETCore.Phishing/Cloudmersive.APIClient.NETCore.Phishing.csproj -c Release

@@ -1,7 +1,7 @@
 /* 
  * phishingapi
  *
- * Easily and directly scan and block phishing security threats.
+ * Easily and directly scan and block phishing security threats in input.
  *
  * OpenAPI spec version: v1
  * 
@@ -23,35 +23,26 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.Phishing.Client.Swag
 namespace Cloudmersive.APIClient.NETCore.Phishing.Model
 {
     /// <summary>
-    /// Responses for the batch calls to Phishing Url
+    /// Result of detecting phishing using AI
     /// </summary>
     [DataContract]
-    public partial class PhishingUrlResponseBatch :  IEquatable<PhishingUrlResponseBatch>
+    public partial class PhishingDetectionResponse :  IEquatable<PhishingDetectionResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PhishingUrlResponseBatch" /> class.
+        /// Initializes a new instance of the <see cref="PhishingDetectionResponse" /> class.
         /// </summary>
-        /// <param name="cleanResult">Specifies if all the urls (or its hosts or domains) in this batch call passed all the checks or not..</param>
-        /// <param name="urlResponses">Dictionary where the requesting url is the key and the value is the resulting validation.</param>
-        public PhishingUrlResponseBatch(bool? cleanResult = default(bool?), List<PhishingUrlResponse> urlResponses = default(List<PhishingUrlResponse>))
+        /// <param name="cleanResult">True if the result is not phishing (clean), and false otherwise.</param>
+        public PhishingDetectionResponse(bool? cleanResult = default(bool?))
         {
             this.CleanResult = cleanResult;
-            this.UrlResponses = urlResponses;
         }
         
         /// <summary>
-        /// Specifies if all the urls (or its hosts or domains) in this batch call passed all the checks or not.
+        /// True if the result is not phishing (clean), and false otherwise
         /// </summary>
-        /// <value>Specifies if all the urls (or its hosts or domains) in this batch call passed all the checks or not.</value>
+        /// <value>True if the result is not phishing (clean), and false otherwise</value>
         [DataMember(Name="CleanResult", EmitDefaultValue=false)]
         public bool? CleanResult { get; set; }
-
-        /// <summary>
-        /// Dictionary where the requesting url is the key and the value is the resulting validation
-        /// </summary>
-        /// <value>Dictionary where the requesting url is the key and the value is the resulting validation</value>
-        [DataMember(Name="UrlResponses", EmitDefaultValue=false)]
-        public List<PhishingUrlResponse> UrlResponses { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +51,8 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PhishingUrlResponseBatch {\n");
+            sb.Append("class PhishingDetectionResponse {\n");
             sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
-            sb.Append("  UrlResponses: ").Append(UrlResponses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +73,15 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PhishingUrlResponseBatch);
+            return this.Equals(input as PhishingDetectionResponse);
         }
 
         /// <summary>
-        /// Returns true if PhishingUrlResponseBatch instances are equal
+        /// Returns true if PhishingDetectionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PhishingUrlResponseBatch to be compared</param>
+        /// <param name="input">Instance of PhishingDetectionResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PhishingUrlResponseBatch input)
+        public bool Equals(PhishingDetectionResponse input)
         {
             if (input == null)
                 return false;
@@ -101,11 +91,6 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.CleanResult == input.CleanResult ||
                     (this.CleanResult != null &&
                     this.CleanResult.Equals(input.CleanResult))
-                ) && 
-                (
-                    this.UrlResponses == input.UrlResponses ||
-                    this.UrlResponses != null &&
-                    this.UrlResponses.SequenceEqual(input.UrlResponses)
                 );
         }
 
@@ -120,8 +105,6 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                 int hashCode = 41;
                 if (this.CleanResult != null)
                     hashCode = hashCode * 59 + this.CleanResult.GetHashCode();
-                if (this.UrlResponses != null)
-                    hashCode = hashCode * 59 + this.UrlResponses.GetHashCode();
                 return hashCode;
             }
         }
