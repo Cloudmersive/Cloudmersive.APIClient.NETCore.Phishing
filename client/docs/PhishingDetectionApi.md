@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**PhishingDetectFileAdvancedPost**](PhishingDetectionApi.md#phishingdetectfileadvancedpost) | **POST** /phishing/detect/file/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 [**PhishingDetectFilePost**](PhishingDetectionApi.md#phishingdetectfilepost) | **POST** /phishing/detect/file | Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
 [**PhishingDetectTextStringAdvancedPost**](PhishingDetectionApi.md#phishingdetecttextstringadvancedpost) | **POST** /phishing/detect/text-string/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+[**PhishingDetectUrlAdvancedPost**](PhishingDetectionApi.md#phishingdetecturladvancedpost) | **POST** /phishing/detect/url/advanced | Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
 
 
 <a name="phishingdetectemailadvancedpost"></a>
@@ -258,6 +259,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PhishingDetectionAdvancedResponse**](PhishingDetectionAdvancedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="phishingdetecturladvancedpost"></a>
+# **PhishingDetectUrlAdvancedPost**
+> PhishingDetectionUrlAdvancedResponse PhishingDetectUrlAdvancedPost (AdvancedUrlDetectionRequest body = null)
+
+Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Cloudmersive.APIClient.NETCore.Phishing.Api;
+using Cloudmersive.APIClient.NETCore.Phishing.Client;
+using Cloudmersive.APIClient.NETCore.Phishing.Model;
+
+namespace Example
+{
+    public class PhishingDetectUrlAdvancedPostExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new PhishingDetectionApi();
+            var body = new AdvancedUrlDetectionRequest(); // AdvancedUrlDetectionRequest | URL phishing detection request (optional) 
+
+            try
+            {
+                // Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
+                PhishingDetectionUrlAdvancedResponse result = apiInstance.PhishingDetectUrlAdvancedPost(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PhishingDetectionApi.PhishingDetectUrlAdvancedPost: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AdvancedUrlDetectionRequest**](AdvancedUrlDetectionRequest.md)| URL phishing detection request | [optional] 
+
+### Return type
+
+[**PhishingDetectionUrlAdvancedResponse**](PhishingDetectionUrlAdvancedResponse.md)
 
 ### Authorization
 

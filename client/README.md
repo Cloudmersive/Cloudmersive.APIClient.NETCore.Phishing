@@ -5,7 +5,7 @@ Easily and directly scan and block phishing security threats in input.
 This C# SDK is for the [Cloudmersive Phishing Detection API](https://www.cloudmersive.com/phishing-detection-api):
 
 - API version: v1
-- SDK version: 1.1.1
+- SDK version: 1.1.2
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -83,16 +83,19 @@ Class | Method | HTTP request | Description
 *PhishingDetectionApi* | [**PhishingDetectFileAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetectfileadvancedpost) | **POST** /phishing/detect/file/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 *PhishingDetectionApi* | [**PhishingDetectFilePost**](docs/PhishingDetectionApi.md#phishingdetectfilepost) | **POST** /phishing/detect/file | Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
 *PhishingDetectionApi* | [**PhishingDetectTextStringAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetecttextstringadvancedpost) | **POST** /phishing/detect/text-string/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+*PhishingDetectionApi* | [**PhishingDetectUrlAdvancedPost**](docs/PhishingDetectionApi.md#phishingdetecturladvancedpost) | **POST** /phishing/detect/url/advanced | Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
  - [Model.AdvancedEmailDetectionRequest](docs/AdvancedEmailDetectionRequest.md)
+ - [Model.AdvancedUrlDetectionRequest](docs/AdvancedUrlDetectionRequest.md)
  - [Model.PhishingDetectionAdvancedRequest](docs/PhishingDetectionAdvancedRequest.md)
  - [Model.PhishingDetectionAdvancedResponse](docs/PhishingDetectionAdvancedResponse.md)
  - [Model.PhishingDetectionEmailAdvancedResponse](docs/PhishingDetectionEmailAdvancedResponse.md)
  - [Model.PhishingDetectionResponse](docs/PhishingDetectionResponse.md)
+ - [Model.PhishingDetectionUrlAdvancedResponse](docs/PhishingDetectionUrlAdvancedResponse.md)
 
 
 <a name="documentation-for-authorization"></a>
