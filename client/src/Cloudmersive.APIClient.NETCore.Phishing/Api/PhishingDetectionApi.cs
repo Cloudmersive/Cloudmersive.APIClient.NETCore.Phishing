@@ -53,9 +53,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>PhishingDetectionAdvancedResponse</returns>
-        PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, System.IO.Stream inputFile = null);
+        PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
@@ -65,9 +66,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>ApiResponse of PhishingDetectionAdvancedResponse</returns>
-        ApiResponse<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostWithHttpInfo (string model = null, System.IO.Stream inputFile = null);
+        ApiResponse<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
@@ -164,9 +166,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>Task of PhishingDetectionAdvancedResponse</returns>
-        System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostAsync (string model = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostAsync (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
@@ -176,9 +179,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>Task of ApiResponse (PhishingDetectionAdvancedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectFileAdvancedPostAsyncWithHttpInfo (string model = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectFileAdvancedPostAsyncWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
@@ -510,11 +514,12 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>PhishingDetectionAdvancedResponse</returns>
-        public PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, System.IO.Stream inputFile = null)
+        public PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<PhishingDetectionAdvancedResponse> localVarResponse = PhishingDetectFileAdvancedPostWithHttpInfo(model, inputFile);
+             ApiResponse<PhishingDetectionAdvancedResponse> localVarResponse = PhishingDetectFileAdvancedPostWithHttpInfo(model, customPolicyId, inputFile);
              return localVarResponse.Data;
         }
 
@@ -523,9 +528,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>ApiResponse of PhishingDetectionAdvancedResponse</returns>
-        public ApiResponse< PhishingDetectionAdvancedResponse > PhishingDetectFileAdvancedPostWithHttpInfo (string model = null, System.IO.Stream inputFile = null)
+        public ApiResponse< PhishingDetectionAdvancedResponse > PhishingDetectFileAdvancedPostWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "./phishing/detect/file/advanced";
@@ -553,6 +559,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (model != null) localVarHeaderParams.Add("model", this.Configuration.ApiClient.ParameterToString(model)); // header parameter
+            if (customPolicyId != null) localVarHeaderParams.Add("customPolicyId", this.Configuration.ApiClient.ParameterToString(customPolicyId)); // header parameter
             if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
@@ -584,11 +591,12 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>Task of PhishingDetectionAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostAsync (string model = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostAsync (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<PhishingDetectionAdvancedResponse> localVarResponse = await PhishingDetectFileAdvancedPostAsyncWithHttpInfo(model, inputFile);
+             ApiResponse<PhishingDetectionAdvancedResponse> localVarResponse = await PhishingDetectFileAdvancedPostAsyncWithHttpInfo(model, customPolicyId, inputFile);
              return localVarResponse.Data;
 
         }
@@ -598,9 +606,10 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
+        /// <param name="customPolicyId"> (optional)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <returns>Task of ApiResponse (PhishingDetectionAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectFileAdvancedPostAsyncWithHttpInfo (string model = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectFileAdvancedPostAsyncWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "./phishing/detect/file/advanced";
@@ -628,6 +637,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (model != null) localVarHeaderParams.Add("model", this.Configuration.ApiClient.ParameterToString(model)); // header parameter
+            if (customPolicyId != null) localVarHeaderParams.Add("customPolicyId", this.Configuration.ApiClient.ParameterToString(customPolicyId)); // header parameter
             if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required

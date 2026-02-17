@@ -5,7 +5,7 @@ Easily and directly scan and block phishing security threats in input.
 This C# SDK is for the [Cloudmersive Phishing Detection API](https://www.cloudmersive.com/phishing-detection-api):
 
 - API version: v1
-- SDK version: 1.1.2
+- SDK version: 1.1.3
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>

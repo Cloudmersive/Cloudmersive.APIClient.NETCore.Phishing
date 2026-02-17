@@ -32,9 +32,11 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// Initializes a new instance of the <see cref="AdvancedUrlDetectionRequest" /> class.
         /// </summary>
         /// <param name="url">URL to check for phishing.</param>
-        public AdvancedUrlDetectionRequest(string url = default(string))
+        /// <param name="customPolicyID">Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud.</param>
+        public AdvancedUrlDetectionRequest(string url = default(string), string customPolicyID = default(string))
         {
             this.Url = url;
+            this.CustomPolicyID = customPolicyID;
         }
         
         /// <summary>
@@ -45,6 +47,13 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public string Url { get; set; }
 
         /// <summary>
+        /// Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+        /// </summary>
+        /// <value>Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud</value>
+        [DataMember(Name="CustomPolicyID", EmitDefaultValue=false)]
+        public string CustomPolicyID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +62,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             var sb = new StringBuilder();
             sb.Append("class AdvancedUrlDetectionRequest {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  CustomPolicyID: ").Append(CustomPolicyID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,6 +101,11 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.CustomPolicyID == input.CustomPolicyID ||
+                    (this.CustomPolicyID != null &&
+                    this.CustomPolicyID.Equals(input.CustomPolicyID))
                 );
         }
 
@@ -105,6 +120,8 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                 int hashCode = 41;
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.CustomPolicyID != null)
+                    hashCode = hashCode * 59 + this.CustomPolicyID.GetHashCode();
                 return hashCode;
             }
         }

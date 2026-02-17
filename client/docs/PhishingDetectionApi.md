@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="phishingdetectfileadvancedpost"></a>
 # **PhishingDetectFileAdvancedPost**
-> PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, System.IO.Stream inputFile = null)
+> PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null)
 
 Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 
@@ -102,12 +102,13 @@ namespace Example
 
             var apiInstance = new PhishingDetectionApi();
             var model = model_example;  // string |  (optional)  (default to Advanced)
+            var customPolicyId = customPolicyId_example;  // string |  (optional) 
             var inputFile = new System.IO.Stream(); // System.IO.Stream |  (optional) 
 
             try
             {
                 // Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
-                PhishingDetectionAdvancedResponse result = apiInstance.PhishingDetectFileAdvancedPost(model, inputFile);
+                PhishingDetectionAdvancedResponse result = apiInstance.PhishingDetectFileAdvancedPost(model, customPolicyId, inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -124,6 +125,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **model** | **string**|  | [optional] [default to Advanced]
+ **customPolicyId** | **string**|  | [optional] 
  **inputFile** | **System.IO.Stream**|  | [optional] 
 
 ### Return type

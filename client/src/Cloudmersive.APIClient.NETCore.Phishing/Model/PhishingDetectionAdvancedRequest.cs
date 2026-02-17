@@ -33,10 +33,28 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// </summary>
         /// <param name="inputString">Input text string to detect phishing against.</param>
         /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced..</param>
-        public PhishingDetectionAdvancedRequest(string inputString = default(string), string model = default(string))
+        /// <param name="customPolicyID">Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud.</param>
+        /// <param name="provideAnalysisRationale">Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true..</param>
+        /// <param name="textType">Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;..</param>
+        /// <param name="fromName">Optional: Name of the sender.</param>
+        /// <param name="toName">Optional: Name of the recipient.</param>
+        /// <param name="fromPhoneNumber">Optional: Phone number of the sender.</param>
+        /// <param name="toPhoneNumber">Optional: Phone number of the recipient.</param>
+        /// <param name="fromEmailAddress">Optional: Email address of the sender.</param>
+        /// <param name="toEmailAddress">Optional: Email address of the recipient.</param>
+        public PhishingDetectionAdvancedRequest(string inputString = default(string), string model = default(string), string customPolicyID = default(string), bool? provideAnalysisRationale = default(bool?), string textType = default(string), string fromName = default(string), string toName = default(string), string fromPhoneNumber = default(string), string toPhoneNumber = default(string), string fromEmailAddress = default(string), string toEmailAddress = default(string))
         {
             this.InputString = inputString;
             this.Model = model;
+            this.CustomPolicyID = customPolicyID;
+            this.ProvideAnalysisRationale = provideAnalysisRationale;
+            this.TextType = textType;
+            this.FromName = fromName;
+            this.ToName = toName;
+            this.FromPhoneNumber = fromPhoneNumber;
+            this.ToPhoneNumber = toPhoneNumber;
+            this.FromEmailAddress = fromEmailAddress;
+            this.ToEmailAddress = toEmailAddress;
         }
         
         /// <summary>
@@ -54,6 +72,69 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public string Model { get; set; }
 
         /// <summary>
+        /// Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+        /// </summary>
+        /// <value>Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud</value>
+        [DataMember(Name="CustomPolicyID", EmitDefaultValue=false)]
+        public string CustomPolicyID { get; set; }
+
+        /// <summary>
+        /// Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true.
+        /// </summary>
+        /// <value>Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true.</value>
+        [DataMember(Name="ProvideAnalysisRationale", EmitDefaultValue=false)]
+        public bool? ProvideAnalysisRationale { get; set; }
+
+        /// <summary>
+        /// Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;.
+        /// </summary>
+        /// <value>Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;.</value>
+        [DataMember(Name="TextType", EmitDefaultValue=false)]
+        public string TextType { get; set; }
+
+        /// <summary>
+        /// Optional: Name of the sender
+        /// </summary>
+        /// <value>Optional: Name of the sender</value>
+        [DataMember(Name="FromName", EmitDefaultValue=false)]
+        public string FromName { get; set; }
+
+        /// <summary>
+        /// Optional: Name of the recipient
+        /// </summary>
+        /// <value>Optional: Name of the recipient</value>
+        [DataMember(Name="ToName", EmitDefaultValue=false)]
+        public string ToName { get; set; }
+
+        /// <summary>
+        /// Optional: Phone number of the sender
+        /// </summary>
+        /// <value>Optional: Phone number of the sender</value>
+        [DataMember(Name="FromPhoneNumber", EmitDefaultValue=false)]
+        public string FromPhoneNumber { get; set; }
+
+        /// <summary>
+        /// Optional: Phone number of the recipient
+        /// </summary>
+        /// <value>Optional: Phone number of the recipient</value>
+        [DataMember(Name="ToPhoneNumber", EmitDefaultValue=false)]
+        public string ToPhoneNumber { get; set; }
+
+        /// <summary>
+        /// Optional: Email address of the sender
+        /// </summary>
+        /// <value>Optional: Email address of the sender</value>
+        [DataMember(Name="FromEmailAddress", EmitDefaultValue=false)]
+        public string FromEmailAddress { get; set; }
+
+        /// <summary>
+        /// Optional: Email address of the recipient
+        /// </summary>
+        /// <value>Optional: Email address of the recipient</value>
+        [DataMember(Name="ToEmailAddress", EmitDefaultValue=false)]
+        public string ToEmailAddress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +144,15 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             sb.Append("class PhishingDetectionAdvancedRequest {\n");
             sb.Append("  InputString: ").Append(InputString).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  CustomPolicyID: ").Append(CustomPolicyID).Append("\n");
+            sb.Append("  ProvideAnalysisRationale: ").Append(ProvideAnalysisRationale).Append("\n");
+            sb.Append("  TextType: ").Append(TextType).Append("\n");
+            sb.Append("  FromName: ").Append(FromName).Append("\n");
+            sb.Append("  ToName: ").Append(ToName).Append("\n");
+            sb.Append("  FromPhoneNumber: ").Append(FromPhoneNumber).Append("\n");
+            sb.Append("  ToPhoneNumber: ").Append(ToPhoneNumber).Append("\n");
+            sb.Append("  FromEmailAddress: ").Append(FromEmailAddress).Append("\n");
+            sb.Append("  ToEmailAddress: ").Append(ToEmailAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +196,51 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.CustomPolicyID == input.CustomPolicyID ||
+                    (this.CustomPolicyID != null &&
+                    this.CustomPolicyID.Equals(input.CustomPolicyID))
+                ) && 
+                (
+                    this.ProvideAnalysisRationale == input.ProvideAnalysisRationale ||
+                    (this.ProvideAnalysisRationale != null &&
+                    this.ProvideAnalysisRationale.Equals(input.ProvideAnalysisRationale))
+                ) && 
+                (
+                    this.TextType == input.TextType ||
+                    (this.TextType != null &&
+                    this.TextType.Equals(input.TextType))
+                ) && 
+                (
+                    this.FromName == input.FromName ||
+                    (this.FromName != null &&
+                    this.FromName.Equals(input.FromName))
+                ) && 
+                (
+                    this.ToName == input.ToName ||
+                    (this.ToName != null &&
+                    this.ToName.Equals(input.ToName))
+                ) && 
+                (
+                    this.FromPhoneNumber == input.FromPhoneNumber ||
+                    (this.FromPhoneNumber != null &&
+                    this.FromPhoneNumber.Equals(input.FromPhoneNumber))
+                ) && 
+                (
+                    this.ToPhoneNumber == input.ToPhoneNumber ||
+                    (this.ToPhoneNumber != null &&
+                    this.ToPhoneNumber.Equals(input.ToPhoneNumber))
+                ) && 
+                (
+                    this.FromEmailAddress == input.FromEmailAddress ||
+                    (this.FromEmailAddress != null &&
+                    this.FromEmailAddress.Equals(input.FromEmailAddress))
+                ) && 
+                (
+                    this.ToEmailAddress == input.ToEmailAddress ||
+                    (this.ToEmailAddress != null &&
+                    this.ToEmailAddress.Equals(input.ToEmailAddress))
                 );
         }
 
@@ -122,6 +257,24 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     hashCode = hashCode * 59 + this.InputString.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.CustomPolicyID != null)
+                    hashCode = hashCode * 59 + this.CustomPolicyID.GetHashCode();
+                if (this.ProvideAnalysisRationale != null)
+                    hashCode = hashCode * 59 + this.ProvideAnalysisRationale.GetHashCode();
+                if (this.TextType != null)
+                    hashCode = hashCode * 59 + this.TextType.GetHashCode();
+                if (this.FromName != null)
+                    hashCode = hashCode * 59 + this.FromName.GetHashCode();
+                if (this.ToName != null)
+                    hashCode = hashCode * 59 + this.ToName.GetHashCode();
+                if (this.FromPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.FromPhoneNumber.GetHashCode();
+                if (this.ToPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.ToPhoneNumber.GetHashCode();
+                if (this.FromEmailAddress != null)
+                    hashCode = hashCode * 59 + this.FromEmailAddress.GetHashCode();
+                if (this.ToEmailAddress != null)
+                    hashCode = hashCode * 59 + this.ToEmailAddress.GetHashCode();
                 return hashCode;
             }
         }
