@@ -115,6 +115,27 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>ApiResponse of PhishingDetectionAdvancedResponse</returns>
         ApiResponse<PhishingDetectionAdvancedResponse> PhishingDetectTextStringAdvancedPostWithHttpInfo (PhishingDetectionAdvancedRequest body = null);
         /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>PhishingDetectionTextStringResponse</returns>
+        PhishingDetectionTextStringResponse PhishingDetectTextStringPost (PhishingDetectionTextStringRequest body = null);
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>ApiResponse of PhishingDetectionTextStringResponse</returns>
+        ApiResponse<PhishingDetectionTextStringResponse> PhishingDetectTextStringPostWithHttpInfo (PhishingDetectionTextStringRequest body = null);
+        /// <summary>
         /// Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
         /// </summary>
         /// <remarks>
@@ -227,6 +248,27 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <param name="body">Phishing detection request (optional)</param>
         /// <returns>Task of ApiResponse (PhishingDetectionAdvancedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectTextStringAdvancedPostAsyncWithHttpInfo (PhishingDetectionAdvancedRequest body = null);
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>Task of PhishingDetectionTextStringResponse</returns>
+        System.Threading.Tasks.Task<PhishingDetectionTextStringResponse> PhishingDetectTextStringPostAsync (PhishingDetectionTextStringRequest body = null);
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>Task of ApiResponse (PhishingDetectionTextStringResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PhishingDetectionTextStringResponse>> PhishingDetectTextStringPostAsyncWithHttpInfo (PhishingDetectionTextStringRequest body = null);
         /// <summary>
         /// Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
         /// </summary>
@@ -972,6 +1014,167 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
             return new ApiResponse<PhishingDetectionAdvancedResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PhishingDetectionAdvancedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhishingDetectionAdvancedResponse)));
+        }
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>PhishingDetectionTextStringResponse</returns>
+        public PhishingDetectionTextStringResponse PhishingDetectTextStringPost (PhishingDetectionTextStringRequest body = null)
+        {
+             ApiResponse<PhishingDetectionTextStringResponse> localVarResponse = PhishingDetectTextStringPostWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>ApiResponse of PhishingDetectionTextStringResponse</returns>
+        public ApiResponse< PhishingDetectionTextStringResponse > PhishingDetectTextStringPostWithHttpInfo (PhishingDetectionTextStringRequest body = null)
+        {
+
+            var localVarPath = "./phishing/detect/text-string";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PhishingDetectTextStringPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PhishingDetectionTextStringResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (PhishingDetectionTextStringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhishingDetectionTextStringResponse)));
+        }
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>Task of PhishingDetectionTextStringResponse</returns>
+        public async System.Threading.Tasks.Task<PhishingDetectionTextStringResponse> PhishingDetectTextStringPostAsync (PhishingDetectionTextStringRequest body = null)
+        {
+             ApiResponse<PhishingDetectionTextStringResponse> localVarResponse = await PhishingDetectTextStringPostAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Phishing detection request (optional)</param>
+        /// <returns>Task of ApiResponse (PhishingDetectionTextStringResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PhishingDetectionTextStringResponse>> PhishingDetectTextStringPostAsyncWithHttpInfo (PhishingDetectionTextStringRequest body = null)
+        {
+
+            var localVarPath = "./phishing/detect/text-string";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PhishingDetectTextStringPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PhishingDetectionTextStringResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (PhishingDetectionTextStringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhishingDetectionTextStringResponse)));
         }
 
         /// <summary>

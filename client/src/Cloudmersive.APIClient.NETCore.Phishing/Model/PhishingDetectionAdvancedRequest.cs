@@ -32,23 +32,35 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// Initializes a new instance of the <see cref="PhishingDetectionAdvancedRequest" /> class.
         /// </summary>
         /// <param name="inputString">Input text string to detect phishing against.</param>
+        /// <param name="textType">Optional: Type of text being analyzed. Must be one of: \&quot;TextMessage\&quot;, \&quot;UserMessage\&quot;, \&quot;SalesLead\&quot;, \&quot;EmailMessage\&quot;, \&quot;SupportCase\&quot;, \&quot;AppMessage\&quot;, \&quot;Other\&quot;..</param>
         /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced..</param>
+        /// <param name="allowUnsolicitedSales">Optional: True if unsolicited sales should be allowed, false otherwise. Defaults to true..</param>
+        /// <param name="allowPromotionalContent">Optional: True if promotional content should be allowed, false otherwise. Defaults to true..</param>
+        /// <param name="allowWebUrls">Optional: True if web URLs should be allowed in the input text, false otherwise. Defaults to true. When false, input containing URLs (including homoglyph URLs and spaced-out URLs) will be flagged as not clean..</param>
+        /// <param name="allowPhoneNumbers">Optional: True if phone numbers should be allowed in the input text, false otherwise. Defaults to true. When false, input containing phone numbers (including homoglyph digits and spaced-out or spelled-out workarounds) will be flagged as not clean..</param>
+        /// <param name="allowEmailAddresses">Optional: True if email addresses should be allowed in the input text, false otherwise. Defaults to true. When false, input containing email addresses (including homoglyph characters and obfuscated workarounds like \&quot;danny at somedomaine [DOT] com\&quot;) will be flagged as not clean..</param>
+        /// <param name="provideUrlAnalysis">Optional: True to perform deep URL analysis on any URLs detected in the text. When enabled, if the initial AI scan detects URLs, a second AI call enumerates them and each URL is individually analyzed for phishing. Defaults to true..</param>
         /// <param name="customPolicyID">Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud.</param>
         /// <param name="provideAnalysisRationale">Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true..</param>
-        /// <param name="textType">Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;..</param>
         /// <param name="fromName">Optional: Name of the sender.</param>
         /// <param name="toName">Optional: Name of the recipient.</param>
         /// <param name="fromPhoneNumber">Optional: Phone number of the sender.</param>
         /// <param name="toPhoneNumber">Optional: Phone number of the recipient.</param>
         /// <param name="fromEmailAddress">Optional: Email address of the sender.</param>
         /// <param name="toEmailAddress">Optional: Email address of the recipient.</param>
-        public PhishingDetectionAdvancedRequest(string inputString = default(string), string model = default(string), string customPolicyID = default(string), bool? provideAnalysisRationale = default(bool?), string textType = default(string), string fromName = default(string), string toName = default(string), string fromPhoneNumber = default(string), string toPhoneNumber = default(string), string fromEmailAddress = default(string), string toEmailAddress = default(string))
+        public PhishingDetectionAdvancedRequest(string inputString = default(string), string textType = default(string), string model = default(string), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), bool? allowWebUrls = default(bool?), bool? allowPhoneNumbers = default(bool?), bool? allowEmailAddresses = default(bool?), bool? provideUrlAnalysis = default(bool?), string customPolicyID = default(string), bool? provideAnalysisRationale = default(bool?), string fromName = default(string), string toName = default(string), string fromPhoneNumber = default(string), string toPhoneNumber = default(string), string fromEmailAddress = default(string), string toEmailAddress = default(string))
         {
             this.InputString = inputString;
+            this.TextType = textType;
             this.Model = model;
+            this.AllowUnsolicitedSales = allowUnsolicitedSales;
+            this.AllowPromotionalContent = allowPromotionalContent;
+            this.AllowWebUrls = allowWebUrls;
+            this.AllowPhoneNumbers = allowPhoneNumbers;
+            this.AllowEmailAddresses = allowEmailAddresses;
+            this.ProvideUrlAnalysis = provideUrlAnalysis;
             this.CustomPolicyID = customPolicyID;
             this.ProvideAnalysisRationale = provideAnalysisRationale;
-            this.TextType = textType;
             this.FromName = fromName;
             this.ToName = toName;
             this.FromPhoneNumber = fromPhoneNumber;
@@ -65,11 +77,60 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public string InputString { get; set; }
 
         /// <summary>
+        /// Optional: Type of text being analyzed. Must be one of: \&quot;TextMessage\&quot;, \&quot;UserMessage\&quot;, \&quot;SalesLead\&quot;, \&quot;EmailMessage\&quot;, \&quot;SupportCase\&quot;, \&quot;AppMessage\&quot;, \&quot;Other\&quot;.
+        /// </summary>
+        /// <value>Optional: Type of text being analyzed. Must be one of: \&quot;TextMessage\&quot;, \&quot;UserMessage\&quot;, \&quot;SalesLead\&quot;, \&quot;EmailMessage\&quot;, \&quot;SupportCase\&quot;, \&quot;AppMessage\&quot;, \&quot;Other\&quot;.</value>
+        [DataMember(Name="TextType", EmitDefaultValue=false)]
+        public string TextType { get; set; }
+
+        /// <summary>
         /// Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.
         /// </summary>
         /// <value>Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.</value>
         [DataMember(Name="Model", EmitDefaultValue=false)]
         public string Model { get; set; }
+
+        /// <summary>
+        /// Optional: True if unsolicited sales should be allowed, false otherwise. Defaults to true.
+        /// </summary>
+        /// <value>Optional: True if unsolicited sales should be allowed, false otherwise. Defaults to true.</value>
+        [DataMember(Name="AllowUnsolicitedSales", EmitDefaultValue=false)]
+        public bool? AllowUnsolicitedSales { get; set; }
+
+        /// <summary>
+        /// Optional: True if promotional content should be allowed, false otherwise. Defaults to true.
+        /// </summary>
+        /// <value>Optional: True if promotional content should be allowed, false otherwise. Defaults to true.</value>
+        [DataMember(Name="AllowPromotionalContent", EmitDefaultValue=false)]
+        public bool? AllowPromotionalContent { get; set; }
+
+        /// <summary>
+        /// Optional: True if web URLs should be allowed in the input text, false otherwise. Defaults to true. When false, input containing URLs (including homoglyph URLs and spaced-out URLs) will be flagged as not clean.
+        /// </summary>
+        /// <value>Optional: True if web URLs should be allowed in the input text, false otherwise. Defaults to true. When false, input containing URLs (including homoglyph URLs and spaced-out URLs) will be flagged as not clean.</value>
+        [DataMember(Name="AllowWebUrls", EmitDefaultValue=false)]
+        public bool? AllowWebUrls { get; set; }
+
+        /// <summary>
+        /// Optional: True if phone numbers should be allowed in the input text, false otherwise. Defaults to true. When false, input containing phone numbers (including homoglyph digits and spaced-out or spelled-out workarounds) will be flagged as not clean.
+        /// </summary>
+        /// <value>Optional: True if phone numbers should be allowed in the input text, false otherwise. Defaults to true. When false, input containing phone numbers (including homoglyph digits and spaced-out or spelled-out workarounds) will be flagged as not clean.</value>
+        [DataMember(Name="AllowPhoneNumbers", EmitDefaultValue=false)]
+        public bool? AllowPhoneNumbers { get; set; }
+
+        /// <summary>
+        /// Optional: True if email addresses should be allowed in the input text, false otherwise. Defaults to true. When false, input containing email addresses (including homoglyph characters and obfuscated workarounds like \&quot;danny at somedomaine [DOT] com\&quot;) will be flagged as not clean.
+        /// </summary>
+        /// <value>Optional: True if email addresses should be allowed in the input text, false otherwise. Defaults to true. When false, input containing email addresses (including homoglyph characters and obfuscated workarounds like \&quot;danny at somedomaine [DOT] com\&quot;) will be flagged as not clean.</value>
+        [DataMember(Name="AllowEmailAddresses", EmitDefaultValue=false)]
+        public bool? AllowEmailAddresses { get; set; }
+
+        /// <summary>
+        /// Optional: True to perform deep URL analysis on any URLs detected in the text. When enabled, if the initial AI scan detects URLs, a second AI call enumerates them and each URL is individually analyzed for phishing. Defaults to true.
+        /// </summary>
+        /// <value>Optional: True to perform deep URL analysis on any URLs detected in the text. When enabled, if the initial AI scan detects URLs, a second AI call enumerates them and each URL is individually analyzed for phishing. Defaults to true.</value>
+        [DataMember(Name="ProvideUrlAnalysis", EmitDefaultValue=false)]
+        public bool? ProvideUrlAnalysis { get; set; }
 
         /// <summary>
         /// Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
@@ -84,13 +145,6 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// <value>Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true.</value>
         [DataMember(Name="ProvideAnalysisRationale", EmitDefaultValue=false)]
         public bool? ProvideAnalysisRationale { get; set; }
-
-        /// <summary>
-        /// Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;.
-        /// </summary>
-        /// <value>Optional: Type of text being analyzed. Must be one of: \&quot;Text Message\&quot;, \&quot;User Message\&quot;, \&quot;Sales Lead\&quot;, \&quot;Email Message\&quot;, \&quot;Support Case\&quot;, \&quot;Other\&quot;.</value>
-        [DataMember(Name="TextType", EmitDefaultValue=false)]
-        public string TextType { get; set; }
 
         /// <summary>
         /// Optional: Name of the sender
@@ -143,10 +197,16 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             var sb = new StringBuilder();
             sb.Append("class PhishingDetectionAdvancedRequest {\n");
             sb.Append("  InputString: ").Append(InputString).Append("\n");
+            sb.Append("  TextType: ").Append(TextType).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  AllowUnsolicitedSales: ").Append(AllowUnsolicitedSales).Append("\n");
+            sb.Append("  AllowPromotionalContent: ").Append(AllowPromotionalContent).Append("\n");
+            sb.Append("  AllowWebUrls: ").Append(AllowWebUrls).Append("\n");
+            sb.Append("  AllowPhoneNumbers: ").Append(AllowPhoneNumbers).Append("\n");
+            sb.Append("  AllowEmailAddresses: ").Append(AllowEmailAddresses).Append("\n");
+            sb.Append("  ProvideUrlAnalysis: ").Append(ProvideUrlAnalysis).Append("\n");
             sb.Append("  CustomPolicyID: ").Append(CustomPolicyID).Append("\n");
             sb.Append("  ProvideAnalysisRationale: ").Append(ProvideAnalysisRationale).Append("\n");
-            sb.Append("  TextType: ").Append(TextType).Append("\n");
             sb.Append("  FromName: ").Append(FromName).Append("\n");
             sb.Append("  ToName: ").Append(ToName).Append("\n");
             sb.Append("  FromPhoneNumber: ").Append(FromPhoneNumber).Append("\n");
@@ -193,9 +253,44 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.InputString.Equals(input.InputString))
                 ) && 
                 (
+                    this.TextType == input.TextType ||
+                    (this.TextType != null &&
+                    this.TextType.Equals(input.TextType))
+                ) && 
+                (
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.AllowUnsolicitedSales == input.AllowUnsolicitedSales ||
+                    (this.AllowUnsolicitedSales != null &&
+                    this.AllowUnsolicitedSales.Equals(input.AllowUnsolicitedSales))
+                ) && 
+                (
+                    this.AllowPromotionalContent == input.AllowPromotionalContent ||
+                    (this.AllowPromotionalContent != null &&
+                    this.AllowPromotionalContent.Equals(input.AllowPromotionalContent))
+                ) && 
+                (
+                    this.AllowWebUrls == input.AllowWebUrls ||
+                    (this.AllowWebUrls != null &&
+                    this.AllowWebUrls.Equals(input.AllowWebUrls))
+                ) && 
+                (
+                    this.AllowPhoneNumbers == input.AllowPhoneNumbers ||
+                    (this.AllowPhoneNumbers != null &&
+                    this.AllowPhoneNumbers.Equals(input.AllowPhoneNumbers))
+                ) && 
+                (
+                    this.AllowEmailAddresses == input.AllowEmailAddresses ||
+                    (this.AllowEmailAddresses != null &&
+                    this.AllowEmailAddresses.Equals(input.AllowEmailAddresses))
+                ) && 
+                (
+                    this.ProvideUrlAnalysis == input.ProvideUrlAnalysis ||
+                    (this.ProvideUrlAnalysis != null &&
+                    this.ProvideUrlAnalysis.Equals(input.ProvideUrlAnalysis))
                 ) && 
                 (
                     this.CustomPolicyID == input.CustomPolicyID ||
@@ -206,11 +301,6 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.ProvideAnalysisRationale == input.ProvideAnalysisRationale ||
                     (this.ProvideAnalysisRationale != null &&
                     this.ProvideAnalysisRationale.Equals(input.ProvideAnalysisRationale))
-                ) && 
-                (
-                    this.TextType == input.TextType ||
-                    (this.TextType != null &&
-                    this.TextType.Equals(input.TextType))
                 ) && 
                 (
                     this.FromName == input.FromName ||
@@ -255,14 +345,26 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                 int hashCode = 41;
                 if (this.InputString != null)
                     hashCode = hashCode * 59 + this.InputString.GetHashCode();
+                if (this.TextType != null)
+                    hashCode = hashCode * 59 + this.TextType.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.AllowUnsolicitedSales != null)
+                    hashCode = hashCode * 59 + this.AllowUnsolicitedSales.GetHashCode();
+                if (this.AllowPromotionalContent != null)
+                    hashCode = hashCode * 59 + this.AllowPromotionalContent.GetHashCode();
+                if (this.AllowWebUrls != null)
+                    hashCode = hashCode * 59 + this.AllowWebUrls.GetHashCode();
+                if (this.AllowPhoneNumbers != null)
+                    hashCode = hashCode * 59 + this.AllowPhoneNumbers.GetHashCode();
+                if (this.AllowEmailAddresses != null)
+                    hashCode = hashCode * 59 + this.AllowEmailAddresses.GetHashCode();
+                if (this.ProvideUrlAnalysis != null)
+                    hashCode = hashCode * 59 + this.ProvideUrlAnalysis.GetHashCode();
                 if (this.CustomPolicyID != null)
                     hashCode = hashCode * 59 + this.CustomPolicyID.GetHashCode();
                 if (this.ProvideAnalysisRationale != null)
                     hashCode = hashCode * 59 + this.ProvideAnalysisRationale.GetHashCode();
-                if (this.TextType != null)
-                    hashCode = hashCode * 59 + this.TextType.GetHashCode();
                 if (this.FromName != null)
                     hashCode = hashCode * 59 + this.FromName.GetHashCode();
                 if (this.ToName != null)

@@ -32,15 +32,27 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// Initializes a new instance of the <see cref="PhishingDetectionAdvancedResponse" /> class.
         /// </summary>
         /// <param name="cleanResult">True if the result is not phishing (clean), and false otherwise.</param>
-        /// <param name="phishingRiskLevel">Overall phishing risk level between 0.0 and 1.0.</param>
+        /// <param name="containsPhishing">True if the input text contains a phishing attempt, false otherwise.</param>
+        /// <param name="containsUnsolicitedSales">True if the input text contains unsolicited sales, false otherwise.</param>
+        /// <param name="containsPromotionalContent">True if the input text contains promotional content, false otherwise.</param>
+        /// <param name="containsWebUrls">True if the input text contains web URLs, including homoglyph URLs and spaced-out URL workarounds.</param>
+        /// <param name="containsPhoneNumbers">True if the input text contains phone numbers, including homoglyph digits and spaced-out or spelled-out workarounds.</param>
+        /// <param name="containsEmailAddresses">True if the input text contains email addresses, including homoglyph characters and obfuscated workarounds.</param>
         /// <param name="confidenceLevel">Confidence level between 0.0 and 1.0 where values over 0.9 indicate high confidence.</param>
         /// <param name="analysisRationale">Rationale for why the conclusion was formed.</param>
-        public PhishingDetectionAdvancedResponse(bool? cleanResult = default(bool?), double? phishingRiskLevel = default(double?), double? confidenceLevel = default(double?), string analysisRationale = default(string))
+        /// <param name="unsafeUrls">URLs detected in the input text that were analyzed and found to be unsafe. Only populated when ProvideUrlAnalysis is true and URLs are detected..</param>
+        public PhishingDetectionAdvancedResponse(bool? cleanResult = default(bool?), bool? containsPhishing = default(bool?), bool? containsUnsolicitedSales = default(bool?), bool? containsPromotionalContent = default(bool?), bool? containsWebUrls = default(bool?), bool? containsPhoneNumbers = default(bool?), bool? containsEmailAddresses = default(bool?), double? confidenceLevel = default(double?), string analysisRationale = default(string), List<UnsafeUrlResult> unsafeUrls = default(List<UnsafeUrlResult>))
         {
             this.CleanResult = cleanResult;
-            this.PhishingRiskLevel = phishingRiskLevel;
+            this.ContainsPhishing = containsPhishing;
+            this.ContainsUnsolicitedSales = containsUnsolicitedSales;
+            this.ContainsPromotionalContent = containsPromotionalContent;
+            this.ContainsWebUrls = containsWebUrls;
+            this.ContainsPhoneNumbers = containsPhoneNumbers;
+            this.ContainsEmailAddresses = containsEmailAddresses;
             this.ConfidenceLevel = confidenceLevel;
             this.AnalysisRationale = analysisRationale;
+            this.UnsafeUrls = unsafeUrls;
         }
         
         /// <summary>
@@ -51,11 +63,46 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public bool? CleanResult { get; set; }
 
         /// <summary>
-        /// Overall phishing risk level between 0.0 and 1.0
+        /// True if the input text contains a phishing attempt, false otherwise
         /// </summary>
-        /// <value>Overall phishing risk level between 0.0 and 1.0</value>
-        [DataMember(Name="PhishingRiskLevel", EmitDefaultValue=false)]
-        public double? PhishingRiskLevel { get; set; }
+        /// <value>True if the input text contains a phishing attempt, false otherwise</value>
+        [DataMember(Name="ContainsPhishing", EmitDefaultValue=false)]
+        public bool? ContainsPhishing { get; set; }
+
+        /// <summary>
+        /// True if the input text contains unsolicited sales, false otherwise
+        /// </summary>
+        /// <value>True if the input text contains unsolicited sales, false otherwise</value>
+        [DataMember(Name="ContainsUnsolicitedSales", EmitDefaultValue=false)]
+        public bool? ContainsUnsolicitedSales { get; set; }
+
+        /// <summary>
+        /// True if the input text contains promotional content, false otherwise
+        /// </summary>
+        /// <value>True if the input text contains promotional content, false otherwise</value>
+        [DataMember(Name="ContainsPromotionalContent", EmitDefaultValue=false)]
+        public bool? ContainsPromotionalContent { get; set; }
+
+        /// <summary>
+        /// True if the input text contains web URLs, including homoglyph URLs and spaced-out URL workarounds
+        /// </summary>
+        /// <value>True if the input text contains web URLs, including homoglyph URLs and spaced-out URL workarounds</value>
+        [DataMember(Name="ContainsWebUrls", EmitDefaultValue=false)]
+        public bool? ContainsWebUrls { get; set; }
+
+        /// <summary>
+        /// True if the input text contains phone numbers, including homoglyph digits and spaced-out or spelled-out workarounds
+        /// </summary>
+        /// <value>True if the input text contains phone numbers, including homoglyph digits and spaced-out or spelled-out workarounds</value>
+        [DataMember(Name="ContainsPhoneNumbers", EmitDefaultValue=false)]
+        public bool? ContainsPhoneNumbers { get; set; }
+
+        /// <summary>
+        /// True if the input text contains email addresses, including homoglyph characters and obfuscated workarounds
+        /// </summary>
+        /// <value>True if the input text contains email addresses, including homoglyph characters and obfuscated workarounds</value>
+        [DataMember(Name="ContainsEmailAddresses", EmitDefaultValue=false)]
+        public bool? ContainsEmailAddresses { get; set; }
 
         /// <summary>
         /// Confidence level between 0.0 and 1.0 where values over 0.9 indicate high confidence
@@ -72,6 +119,13 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public string AnalysisRationale { get; set; }
 
         /// <summary>
+        /// URLs detected in the input text that were analyzed and found to be unsafe. Only populated when ProvideUrlAnalysis is true and URLs are detected.
+        /// </summary>
+        /// <value>URLs detected in the input text that were analyzed and found to be unsafe. Only populated when ProvideUrlAnalysis is true and URLs are detected.</value>
+        [DataMember(Name="UnsafeUrls", EmitDefaultValue=false)]
+        public List<UnsafeUrlResult> UnsafeUrls { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,9 +134,15 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             var sb = new StringBuilder();
             sb.Append("class PhishingDetectionAdvancedResponse {\n");
             sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
-            sb.Append("  PhishingRiskLevel: ").Append(PhishingRiskLevel).Append("\n");
+            sb.Append("  ContainsPhishing: ").Append(ContainsPhishing).Append("\n");
+            sb.Append("  ContainsUnsolicitedSales: ").Append(ContainsUnsolicitedSales).Append("\n");
+            sb.Append("  ContainsPromotionalContent: ").Append(ContainsPromotionalContent).Append("\n");
+            sb.Append("  ContainsWebUrls: ").Append(ContainsWebUrls).Append("\n");
+            sb.Append("  ContainsPhoneNumbers: ").Append(ContainsPhoneNumbers).Append("\n");
+            sb.Append("  ContainsEmailAddresses: ").Append(ContainsEmailAddresses).Append("\n");
             sb.Append("  ConfidenceLevel: ").Append(ConfidenceLevel).Append("\n");
             sb.Append("  AnalysisRationale: ").Append(AnalysisRationale).Append("\n");
+            sb.Append("  UnsafeUrls: ").Append(UnsafeUrls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,9 +183,34 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.CleanResult.Equals(input.CleanResult))
                 ) && 
                 (
-                    this.PhishingRiskLevel == input.PhishingRiskLevel ||
-                    (this.PhishingRiskLevel != null &&
-                    this.PhishingRiskLevel.Equals(input.PhishingRiskLevel))
+                    this.ContainsPhishing == input.ContainsPhishing ||
+                    (this.ContainsPhishing != null &&
+                    this.ContainsPhishing.Equals(input.ContainsPhishing))
+                ) && 
+                (
+                    this.ContainsUnsolicitedSales == input.ContainsUnsolicitedSales ||
+                    (this.ContainsUnsolicitedSales != null &&
+                    this.ContainsUnsolicitedSales.Equals(input.ContainsUnsolicitedSales))
+                ) && 
+                (
+                    this.ContainsPromotionalContent == input.ContainsPromotionalContent ||
+                    (this.ContainsPromotionalContent != null &&
+                    this.ContainsPromotionalContent.Equals(input.ContainsPromotionalContent))
+                ) && 
+                (
+                    this.ContainsWebUrls == input.ContainsWebUrls ||
+                    (this.ContainsWebUrls != null &&
+                    this.ContainsWebUrls.Equals(input.ContainsWebUrls))
+                ) && 
+                (
+                    this.ContainsPhoneNumbers == input.ContainsPhoneNumbers ||
+                    (this.ContainsPhoneNumbers != null &&
+                    this.ContainsPhoneNumbers.Equals(input.ContainsPhoneNumbers))
+                ) && 
+                (
+                    this.ContainsEmailAddresses == input.ContainsEmailAddresses ||
+                    (this.ContainsEmailAddresses != null &&
+                    this.ContainsEmailAddresses.Equals(input.ContainsEmailAddresses))
                 ) && 
                 (
                     this.ConfidenceLevel == input.ConfidenceLevel ||
@@ -136,6 +221,11 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.AnalysisRationale == input.AnalysisRationale ||
                     (this.AnalysisRationale != null &&
                     this.AnalysisRationale.Equals(input.AnalysisRationale))
+                ) && 
+                (
+                    this.UnsafeUrls == input.UnsafeUrls ||
+                    this.UnsafeUrls != null &&
+                    this.UnsafeUrls.SequenceEqual(input.UnsafeUrls)
                 );
         }
 
@@ -150,12 +240,24 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                 int hashCode = 41;
                 if (this.CleanResult != null)
                     hashCode = hashCode * 59 + this.CleanResult.GetHashCode();
-                if (this.PhishingRiskLevel != null)
-                    hashCode = hashCode * 59 + this.PhishingRiskLevel.GetHashCode();
+                if (this.ContainsPhishing != null)
+                    hashCode = hashCode * 59 + this.ContainsPhishing.GetHashCode();
+                if (this.ContainsUnsolicitedSales != null)
+                    hashCode = hashCode * 59 + this.ContainsUnsolicitedSales.GetHashCode();
+                if (this.ContainsPromotionalContent != null)
+                    hashCode = hashCode * 59 + this.ContainsPromotionalContent.GetHashCode();
+                if (this.ContainsWebUrls != null)
+                    hashCode = hashCode * 59 + this.ContainsWebUrls.GetHashCode();
+                if (this.ContainsPhoneNumbers != null)
+                    hashCode = hashCode * 59 + this.ContainsPhoneNumbers.GetHashCode();
+                if (this.ContainsEmailAddresses != null)
+                    hashCode = hashCode * 59 + this.ContainsEmailAddresses.GetHashCode();
                 if (this.ConfidenceLevel != null)
                     hashCode = hashCode * 59 + this.ConfidenceLevel.GetHashCode();
                 if (this.AnalysisRationale != null)
                     hashCode = hashCode * 59 + this.AnalysisRationale.GetHashCode();
+                if (this.UnsafeUrls != null)
+                    hashCode = hashCode * 59 + this.UnsafeUrls.GetHashCode();
                 return hashCode;
             }
         }
