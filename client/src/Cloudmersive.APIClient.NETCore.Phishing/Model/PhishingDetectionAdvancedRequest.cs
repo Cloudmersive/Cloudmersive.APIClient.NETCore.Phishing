@@ -48,7 +48,8 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         /// <param name="toPhoneNumber">Optional: Phone number of the recipient.</param>
         /// <param name="fromEmailAddress">Optional: Email address of the sender.</param>
         /// <param name="toEmailAddress">Optional: Email address of the recipient.</param>
-        public PhishingDetectionAdvancedRequest(string inputString = default(string), string textType = default(string), string model = default(string), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), bool? allowWebUrls = default(bool?), bool? allowPhoneNumbers = default(bool?), bool? allowEmailAddresses = default(bool?), bool? provideUrlAnalysis = default(bool?), string customPolicyID = default(string), bool? provideAnalysisRationale = default(bool?), string fromName = default(string), string toName = default(string), string fromPhoneNumber = default(string), string toPhoneNumber = default(string), string fromEmailAddress = default(string), string toEmailAddress = default(string))
+        /// <param name="priorHistory">Optional: Prior context history (e.g. message history) leading up to the current input string. If provided, the AI will take this history into account as context when evaluating the current input..</param>
+        public PhishingDetectionAdvancedRequest(string inputString = default(string), string textType = default(string), string model = default(string), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), bool? allowWebUrls = default(bool?), bool? allowPhoneNumbers = default(bool?), bool? allowEmailAddresses = default(bool?), bool? provideUrlAnalysis = default(bool?), string customPolicyID = default(string), bool? provideAnalysisRationale = default(bool?), string fromName = default(string), string toName = default(string), string fromPhoneNumber = default(string), string toPhoneNumber = default(string), string fromEmailAddress = default(string), string toEmailAddress = default(string), List<PriorHistoryItem> priorHistory = default(List<PriorHistoryItem>))
         {
             this.InputString = inputString;
             this.TextType = textType;
@@ -67,6 +68,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             this.ToPhoneNumber = toPhoneNumber;
             this.FromEmailAddress = fromEmailAddress;
             this.ToEmailAddress = toEmailAddress;
+            this.PriorHistory = priorHistory;
         }
         
         /// <summary>
@@ -189,6 +191,13 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
         public string ToEmailAddress { get; set; }
 
         /// <summary>
+        /// Optional: Prior context history (e.g. message history) leading up to the current input string. If provided, the AI will take this history into account as context when evaluating the current input.
+        /// </summary>
+        /// <value>Optional: Prior context history (e.g. message history) leading up to the current input string. If provided, the AI will take this history into account as context when evaluating the current input.</value>
+        [DataMember(Name="PriorHistory", EmitDefaultValue=false)]
+        public List<PriorHistoryItem> PriorHistory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -213,6 +222,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
             sb.Append("  ToPhoneNumber: ").Append(ToPhoneNumber).Append("\n");
             sb.Append("  FromEmailAddress: ").Append(FromEmailAddress).Append("\n");
             sb.Append("  ToEmailAddress: ").Append(ToEmailAddress).Append("\n");
+            sb.Append("  PriorHistory: ").Append(PriorHistory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -331,6 +341,11 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     this.ToEmailAddress == input.ToEmailAddress ||
                     (this.ToEmailAddress != null &&
                     this.ToEmailAddress.Equals(input.ToEmailAddress))
+                ) && 
+                (
+                    this.PriorHistory == input.PriorHistory ||
+                    this.PriorHistory != null &&
+                    this.PriorHistory.SequenceEqual(input.PriorHistory)
                 );
         }
 
@@ -377,6 +392,8 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Model
                     hashCode = hashCode * 59 + this.FromEmailAddress.GetHashCode();
                 if (this.ToEmailAddress != null)
                     hashCode = hashCode * 59 + this.ToEmailAddress.GetHashCode();
+                if (this.PriorHistory != null)
+                    hashCode = hashCode * 59 + this.PriorHistory.GetHashCode();
                 return hashCode;
             }
         }

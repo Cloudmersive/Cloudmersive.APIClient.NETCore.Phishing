@@ -25,7 +25,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -36,7 +36,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         PhishingDetectionEmailAdvancedResponse PhishingDetectEmailAdvancedPost (AdvancedEmailDetectionRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -46,7 +46,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>ApiResponse of PhishingDetectionEmailAdvancedResponse</returns>
         ApiResponse<PhishingDetectionEmailAdvancedResponse> PhishingDetectEmailAdvancedPostWithHttpInfo (AdvancedEmailDetectionRequest body = null);
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -59,7 +59,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         PhishingDetectionAdvancedResponse PhishingDetectFileAdvancedPost (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -71,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>ApiResponse of PhishingDetectionAdvancedResponse</returns>
         ApiResponse<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -83,7 +83,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         PhishingDetectionResponse PhishingDetectFilePost (string model = null, System.IO.Stream inputFile = null);
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -94,7 +94,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>ApiResponse of PhishingDetectionResponse</returns>
         ApiResponse<PhishingDetectionResponse> PhishingDetectFilePostWithHttpInfo (string model = null, System.IO.Stream inputFile = null);
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -105,7 +105,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         PhishingDetectionAdvancedResponse PhishingDetectTextStringAdvancedPost (PhishingDetectionAdvancedRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -159,7 +159,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -170,7 +170,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         System.Threading.Tasks.Task<PhishingDetectionEmailAdvancedResponse> PhishingDetectEmailAdvancedPostAsync (AdvancedEmailDetectionRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -180,7 +180,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>Task of ApiResponse (PhishingDetectionEmailAdvancedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PhishingDetectionEmailAdvancedResponse>> PhishingDetectEmailAdvancedPostAsyncWithHttpInfo (AdvancedEmailDetectionRequest body = null);
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -193,7 +193,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectFileAdvancedPostAsync (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -205,7 +205,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>Task of ApiResponse (PhishingDetectionAdvancedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PhishingDetectionAdvancedResponse>> PhishingDetectFileAdvancedPostAsyncWithHttpInfo (string model = null, string customPolicyId = null, System.IO.Stream inputFile = null);
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -217,7 +217,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         System.Threading.Tasks.Task<PhishingDetectionResponse> PhishingDetectFilePostAsync (string model = null, System.IO.Stream inputFile = null);
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -228,7 +228,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         /// <returns>Task of ApiResponse (PhishingDetectionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PhishingDetectionResponse>> PhishingDetectFilePostAsyncWithHttpInfo (string model = null, System.IO.Stream inputFile = null);
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -239,7 +239,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         System.Threading.Tasks.Task<PhishingDetectionAdvancedResponse> PhishingDetectTextStringAdvancedPostAsync (PhishingDetectionAdvancedRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -391,7 +391,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -403,7 +403,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -471,7 +471,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -484,7 +484,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input email.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input email.  Supports email input as a file (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP) or as an HTML body string.  Analyzes input email as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -552,7 +552,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
@@ -566,7 +566,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
@@ -629,7 +629,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
@@ -644,7 +644,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model"> (optional, default to Advanced)</param>
@@ -707,7 +707,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to Advanced)</param>
@@ -720,7 +720,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to Advanced)</param>
@@ -781,7 +781,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to Advanced)</param>
@@ -795,7 +795,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
+        /// Perform AI phishing detection and classification on an input image or document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, HTML, EML, MSG, PNG, JPG, WEBP).  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to Advanced)</param>
@@ -856,7 +856,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -868,7 +868,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -936,7 +936,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
@@ -949,7 +949,7 @@ namespace Cloudmersive.APIClient.NETCore.Phishing.Api
         }
 
         /// <summary>
-        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.Phishing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Phishing detection request (optional)</param>
